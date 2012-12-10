@@ -1,7 +1,7 @@
 Influence This!
 ===============
 
-This is a shell maven project for conducting team hackday-style interviews. Clone master and then create a branch for each interview day.
+This is a maven project template for conducting team hackday-style interviews. Clone master and then create a branch for each interview day.
 
 Usage
 -----

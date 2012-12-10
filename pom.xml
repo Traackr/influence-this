@@ -8,7 +8,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
-    <description>Simple Java project for Traackr team hacking interviews</description>
+    <description>Simple Java project template for Traackr team hacking interviews</description>
 
     <organization>
         <name>Traackr</name>
