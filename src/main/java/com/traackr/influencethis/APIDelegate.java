@@ -10,6 +10,8 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import com.google.gson.Gson;
+
 public class APIDelegate {
 	
 	public void getInfluencers(String commaSeparatedKeywords) {
@@ -25,10 +27,13 @@ public class APIDelegate {
 	        System.out.println("URI is" + httpget.getURI());
 	        HttpResponse response = httpclient.execute(httpget);
 	        HttpEntity entity = response.getEntity();
-	    	String responseString = EntityUtils.toString(entity);
+	    	String responseJson = EntityUtils.toString(entity);
 	    	
-	    	System.out.println(responseString);
-	    	
+	    	Gson gson = new Gson();
+	    	InfluencerJson[] influencers = gson.fromJson(responseJson, InfluencerJson[].class);
+	    	for (InfluencerJson influencer : influencers) {
+	    		System.out.println(influencer.toString());
+	    	}
 	    } catch(Exception e) {
 	    	System.out.println(e);
 	    }

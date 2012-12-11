@@ -39,23 +39,7 @@ public class Main {
     if (args.length != 1) {
     	System.err.println("Expected exactly one argument, a comma-delimited keyword string! Goodbye!");
     }
-    HttpClient httpclient = new DefaultHttpClient();
-    URIBuilder builder = new URIBuilder();
-    builder.setScheme("https").setHost("api-qa.traackr.com").setPath("/1.0/search/influencers")
-    	.setParameter("keywords",args[0])
-    	.setParameter("key", "ac03630f937f9c0ed27cfca2e6380a5a409234db");
-    try {
-    	URI uri = builder.build();
-        HttpGet httpget = new HttpGet(uri);
-        System.out.println("URI is" + httpget.getURI());
-        HttpResponse response = httpclient.execute(httpget);
-        HttpEntity entity = response.getEntity();
-    	String responseString = EntityUtils.toString(entity);
-    	
-    	System.out.println(responseString);
-    	
-    } catch(Exception e) {
-    	System.out.println(e);
-    }
+    APIDelegate delegate = new APIDelegate();
+    delegate.getInfluencers(args[0]);
   }
 }
