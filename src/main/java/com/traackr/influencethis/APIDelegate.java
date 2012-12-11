@@ -14,7 +14,9 @@ import com.google.gson.Gson;
 
 public class APIDelegate {
 	
-	public void getInfluencers(String commaSeparatedKeywords) {
+	public Influencer[] getInfluencers(String commaSeparatedKeywords) {
+		
+		Influencer[] influencers = new Influencer[0];
 
 	    HttpClient httpclient = new DefaultHttpClient();
 	    URIBuilder builder = new URIBuilder();
@@ -31,13 +33,11 @@ public class APIDelegate {
 	    	
 	    	Gson gson = new Gson();
 	    	InfluencerJsonContainer influencerContainer = gson.fromJson(responseJson, InfluencerJsonContainer.class);
-	    	Influencer[] influencers = influencerContainer.getInfluencers();
-	    	for (Influencer influencer : influencers) {
-	    		System.out.println(influencer.toString());
-	    	}
+	    	influencers = influencerContainer.getInfluencers();
 	    } catch(Exception e) {
 	    	System.out.println(e);
 	    }
+    	return influencers;
 	}
 
 }

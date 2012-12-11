@@ -40,6 +40,10 @@ public class Main {
     	System.err.println("Expected exactly one argument, a comma-delimited keyword string! Goodbye!");
     }
     APIDelegate delegate = new APIDelegate();
-    delegate.getInfluencers(args[0]);
+    Influencer[] influencers = delegate.getInfluencers(args[0]);
+
+	for (Influencer influencer : influencers) {
+		System.out.println(influencer.toString());
+	}
   }
 }
