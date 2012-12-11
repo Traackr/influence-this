@@ -1,6 +1,6 @@
 package com.traackr.influencethis;
 
-public class InfluencerJson {
+public class Influencer {
 	private String uid;
 	private String name;
 	private String description;

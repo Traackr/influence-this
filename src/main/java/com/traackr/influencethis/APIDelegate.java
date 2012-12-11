@@ -30,8 +30,9 @@ public class APIDelegate {
 	    	String responseJson = EntityUtils.toString(entity);
 	    	
 	    	Gson gson = new Gson();
-	    	InfluencerJson[] influencers = gson.fromJson(responseJson, InfluencerJson[].class);
-	    	for (InfluencerJson influencer : influencers) {
+	    	InfluencerJsonContainer influencerContainer = gson.fromJson(responseJson, InfluencerJsonContainer.class);
+	    	Influencer[] influencers = influencerContainer.getInfluencers();
+	    	for (Influencer influencer : influencers) {
 	    		System.out.println(influencer.toString());
 	    	}
 	    } catch(Exception e) {
