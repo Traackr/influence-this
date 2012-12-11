@@ -21,6 +21,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Main Test placeholder
+ * 
  * @author gstathis
  *         Created on: 12/10/12
  */
