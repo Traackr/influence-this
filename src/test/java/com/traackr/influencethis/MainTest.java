@@ -35,5 +35,7 @@ public class MainTest {
     LOG.debug("This is a sample test");
     String actualValue = "expected value";
     Assert.assertEquals("A sample test assertion failure message", "expected value", actualValue);
+    LOG.debug("Connecting to the database");
+    Assert.assertTrue(DBTest.CanConnect("mongodb://localhost:27017"));
   }
 }

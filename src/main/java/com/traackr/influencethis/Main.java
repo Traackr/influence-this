@@ -14,16 +14,32 @@
  */
 package com.traackr.influencethis;
 
+import java.net.UnknownHostException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.mongodb.MongoException;
 
 /**
  * @author gstathis
  *         Created on: 12/10/12
  */
 public class Main {
-	
+
   private static Logger LOG = LoggerFactory.getLogger(Main.class);
+  
+  static {
+	try {
+		DBConnection.Init("mongodb://localhost:27017");
+	} catch (MongoException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (UnknownHostException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  }
   
   public static void main(String[] args) {
     LOG.info("Entering Main");
